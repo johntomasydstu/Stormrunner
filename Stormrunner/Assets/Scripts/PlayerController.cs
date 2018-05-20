@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed; //The Speed which the player moves at
+	public float speedMultiplier; //The value at which the moveSpeed is multiplied
+
+	public float speedIncreaseMilestone; //Milestone at which the moveSpeed is multiplied
+	private float speedMilestoneCount; //Used to keep track - everytime a set distance is reached add speedIncreaseMilestone
+
 	public float jumpForce; //The player's jump force
 
 	public float jumpTime; //How long the player can continue jumping when the jump button is held down
@@ -14,8 +19,10 @@ public class PlayerController : MonoBehaviour {
 
 	public bool grounded; //If player is on the ground, this variable is set to true.
 	public LayerMask whatIsGround; //The Ground
+	public Transform groundCheck; //Ground Check object
+	public float groundCheckRadius; //Radius of the Ground Check object
 
-	private Collider2D myCollider; //Player's Collider
+	//private Collider2D myCollider; //Player's Collider
 
 	private Animator myAnimator; //Player's Animator
 
@@ -26,17 +33,29 @@ public class PlayerController : MonoBehaviour {
 	{
 		myRigidbody = GetComponent<Rigidbody2D> (); //Sets myRigidbody to the player's RigidBody2D component
 	
-		myCollider = GetComponent<Collider2D> (); //Sets myCollider to the player's Collider2D component
+		//myCollider = GetComponent<Collider2D> (); //Sets myCollider to the player's Collider2D component
 
 		myAnimator = GetComponent<Animator> (); //Sets myAnimator to the player's Animator component
 
 		jumpTimeCounter = jumpTime;
+
+		speedMilestoneCount = speedIncreaseMilestone;
 	}
 	
 	// Update is called once per frames
 	void Update () 
 	{
-		grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
+		grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround); //Determine if play is on the ground
+
+		//Speed Multiply
+		if (transform.position.x > speedMilestoneCount) //If the player's x position is greater than the speedMilestoneCount
+		{
+			speedMilestoneCount += speedIncreaseMilestone; //When player hits milestone, increase to the new milestone
+
+			speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier; //Next milestone will be slightly larger than the previous milestine
+
+			moveSpeed = moveSpeed * speedMultiplier; //Movespeed is multiplied by the speedMultiplier
+		}
 
 		myRigidbody.velocity = new Vector2 (moveSpeed, myRigidbody.velocity.y); //The player's x velocity is set to moveSpeed, the player's y velocity remains the same
 
