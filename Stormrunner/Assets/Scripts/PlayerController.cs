@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 	public float jumpTime; //How long the player can continue jumping when the jump button is held down
 	private float jumpTimeCounter; //Counter that uses the jump time to control the player.
 
+	private bool stoppedJumping; //Becomes true when player hits the ground, becomes false when start jumping
+
 	private Rigidbody2D myRigidbody; //Rigid Body belonging to the object (player) the script is attatched to 
 
 	public bool grounded; //If player is on the ground, this variable is set to true.
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour {
 		speedMilestoneCountStore = speedMilestoneCount; //Set initial value
 		speedIncreaseMilestoneStore = speedIncreaseMilestone; //Set initial value
 
+		stoppedJumping = true;
 	}
 	
 	// Update is called once per frames
@@ -78,10 +81,11 @@ public class PlayerController : MonoBehaviour {
 			if (grounded) 
 			{
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce); //The player's x velocity remains the same, y velocity is set to jumpForce
+				stoppedJumping = false;
 			}
 		}
 
-		if (Input.GetKey (KeyCode.Space) || Input.GetMouseButton (0)) 
+		if ((Input.GetKey (KeyCode.Space) || Input.GetMouseButton (0)) && !stoppedJumping) 
 		{
 			if (jumpTimeCounter > 0) 
 			{
@@ -93,6 +97,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Space) || Input.GetMouseButtonUp (0)) 
 		{
 			jumpTimeCounter = 0; 
+			stoppedJumping = true;
 		}
 
 		if (grounded)
