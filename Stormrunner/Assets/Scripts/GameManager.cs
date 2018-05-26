@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	private ScoreManager theScoreManager; //Score Manager
 
 
+	public DeathMenu theDeathScreen; //Game Over Screen
 
 
 	// Use this for initialization
@@ -25,21 +26,38 @@ public class GameManager : MonoBehaviour {
 
 		theScoreManager = FindObjectOfType<ScoreManager>(); //initialize score manager
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
 		
-	}
-
 
 	//Restart Game Coroutine
 	public void RestartGame() 
 	{
-		StartCoroutine ("RestartGameCo"); //Runs ResartGameCoroutine
+		theScoreManager.scoreIncreasing = false;
+		thePlayer.gameObject.SetActive (false); //Deactivates the player - make player invisible.
+
+		theDeathScreen.gameObject.SetActive (true); //Activates the Game Over Screen
+
+		//StartCoroutine ("RestartGameCo"); //Runs ResartGameCoroutine
 	}
 
-	//Restart Game Coroutine
+	public void Reset()
+	{
+		theDeathScreen.gameObject.SetActive (false); //Activates the Game Over Screen
+		platformList = FindObjectsOfType<PlatformDestroyer>(); //Adds all of the platforms with the PlatformDestroyer script to the platform list
+
+		for (int i = 0; i < platformList.Length; i++) //For every object in platformList:
+		{
+			platformList [i].gameObject.SetActive (false); //Deactivate object
+		}
+
+		thePlayer.transform.position = playerStartPoint; //Sets the player's position to the Player's start point
+		platformGenerator.position = platformStartPoint; //Sets the platformGenerator's position to the platformGenerator's start point
+		thePlayer.gameObject.SetActive(true); //Reactivates the player - make player visible again.
+
+		theScoreManager.scoreCount = 0;
+		theScoreManager.scoreIncreasing = true;
+	}
+
+	/*//Restart Game Coroutine
 	public IEnumerator RestartGameCo()
 	{
 		theScoreManager.scoreIncreasing = false;
@@ -56,6 +74,5 @@ public class GameManager : MonoBehaviour {
 
 		theScoreManager.scoreCount = 0;
 		theScoreManager.scoreIncreasing = true;
-
-	}
+	}*/
 }
