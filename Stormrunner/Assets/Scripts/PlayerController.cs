@@ -5,10 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed; //The Speed which the player moves at
+	private float moveSpeedStore; //Stores the initial moveSpeed
 	public float speedMultiplier; //The value at which the moveSpeed is multiplied
 
 	public float speedIncreaseMilestone; //Milestone at which the moveSpeed is multiplied
+	private float speedIncreaseMilestoneStore; //Stores the initial speedIncreaseMilestoneCount
+
+
 	private float speedMilestoneCount; //Used to keep track - everytime a set distance is reached add speedIncreaseMilestone
+	private float speedMilestoneCountStore; //Stores the initial speedMilestoneCount
+
 
 	public float jumpForce; //The player's jump force
 
@@ -24,7 +30,9 @@ public class PlayerController : MonoBehaviour {
 
 	//private Collider2D myCollider; //Player's Collider
 
-	private Animator myAnimator; //Player's Animator
+	private Animator myAnimator; //Player's Animator'
+
+	public GameManager theGameManager; //Game Manager
 
 
 
@@ -40,6 +48,11 @@ public class PlayerController : MonoBehaviour {
 		jumpTimeCounter = jumpTime;
 
 		speedMilestoneCount = speedIncreaseMilestone;
+
+		moveSpeedStore = moveSpeed; //Set initial value
+		speedMilestoneCountStore = speedMilestoneCount; //Set initial value
+		speedIncreaseMilestoneStore = speedIncreaseMilestone; //Set initial value
+
 	}
 	
 	// Update is called once per frames
@@ -79,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyUp (KeyCode.Space) || Input.GetMouseButtonUp (0)) 
 		{
-			jumpTimeCounter = 0;
+			jumpTimeCounter = 0; 
 		}
 
 		if (grounded)
@@ -89,6 +102,18 @@ public class PlayerController : MonoBehaviour {
 
 		myAnimator.SetFloat ("Speed", myRigidbody.velocity.x); //Sets the Animator variable "Speed" to the x value of the Player's Rigidbody Velocity
 		myAnimator.SetBool("Grounded", grounded); //Sets the Animator variable "Grounded" to grounded
+	}
 
+	void OnCollisionEnter2D (Collision2D other)
+	{
+		if (other.gameObject.tag == "killbox") 
+		{
+			theGameManager.RestartGame (); //Restart the game
+			moveSpeed = moveSpeedStore; //Reset to initial value
+			speedMilestoneCount = speedMilestoneCountStore; //Reset to initial value
+			speedIncreaseMilestone = speedIncreaseMilestoneStore; //Reset initial value
+
+
+		}
 	}
 }
