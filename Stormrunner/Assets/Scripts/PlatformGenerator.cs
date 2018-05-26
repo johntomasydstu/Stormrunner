@@ -26,6 +26,9 @@ public class PlatformGenerator : MonoBehaviour {
 	public float maxHeightChange;
 	private float heightChange;
 
+	private CoinGenerator theCoinGenerator; //Coin Generator
+	public float randomCoinThreshold; //Used to decide if coins should be created or not
+
 
 
 	// Use this for initialization
@@ -33,7 +36,7 @@ public class PlatformGenerator : MonoBehaviour {
 	{
 		//platformWidth = thePlatform.GetComponent<BoxCollider2D> ().size.x;
 
-		//
+	
 		platformWidths = new float[theObjectPools.Length]; 
 
 		for (int i = 0; i < theObjectPools.Length; i++)
@@ -43,6 +46,8 @@ public class PlatformGenerator : MonoBehaviour {
 
 		minHeight = transform.position.y; //Minimum height is the y pos of PlatformGenerator object
 		maxHeight = maxHeightPoint.position.y; 
+
+		theCoinGenerator = FindObjectOfType<CoinGenerator> (); //Initialization
 
 	}
 	
@@ -77,7 +82,11 @@ public class PlatformGenerator : MonoBehaviour {
 			newPlatform.transform.rotation = transform.rotation;
 			newPlatform.SetActive (true); //activates object
 
-
+			if (Random.Range (0f, 100f) < randomCoinThreshold) 
+			{
+				theCoinGenerator.SpawnCoins (new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z)); //Spawn Coins
+			}
+				
 			transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
 
 
