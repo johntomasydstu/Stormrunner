@@ -51,15 +51,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PSD Logo Templates\Sample\IconPreview.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CoinGenerator.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ObjectPooler.cs" />
      <Compile Include="Assets\Scripts\pickupPoints.cs" />
      <Compile Include="Assets\Scripts\PlatformDestroyer.cs" />
      <Compile Include="Assets\Scripts\PlatformGenerator.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
+     <None Include="Assets\PSD Logo Templates\Fonts\Baloo\OFL.txt" />
+     <None Include="Assets\PSD Logo Templates\Fonts\Passion_One\OFL.txt" />
+     <None Include="Assets\PSD Logo Templates\Fonts\Changa_One\OFL.txt" />
+     <None Include="Assets\PSD Logo Templates\Fonts\Lilita_One\OFL.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/john.toma/Documents/GitHub/Stormrunner/Stormrunner/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
