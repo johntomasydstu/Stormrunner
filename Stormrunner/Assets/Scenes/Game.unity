@@ -2949,7 +2949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   speedMultiplier: 1.05
-  speedIncreaseMilestone: 100
+  speedIncreaseMilestone: 250
   jumpForce: 12
   jumpTime: 0.25
   grounded: 0

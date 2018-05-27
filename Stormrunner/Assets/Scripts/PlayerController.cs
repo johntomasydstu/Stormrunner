@@ -67,13 +67,19 @@ public class PlayerController : MonoBehaviour {
 		grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround); //Determine if play is on the ground
 
 		//Speed Multiply
-		if (transform.position.x > speedMilestoneCount) //If the player's x position is greater than the speedMilestoneCount
+		if (transform.position.x > speedMilestoneCount && moveSpeed < 13) //If the player's x position is greater than the speedMilestoneCount
 		{
 			speedMilestoneCount += speedIncreaseMilestone; //When player hits milestone, increase to the new milestone
 
 			speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier; //Next milestone will be slightly larger than the previous milestine
 
 			moveSpeed = moveSpeed * speedMultiplier; //Movespeed is multiplied by the speedMultiplier
+
+			//If the movespeed is greater than 13, it is then set to 13.0
+			if (moveSpeed > 13) 
+			{
+				moveSpeed = 13;
+			}
 		}
 
 		myRigidbody.velocity = new Vector2 (moveSpeed, myRigidbody.velocity.y); //The player's x velocity is set to moveSpeed, the player's y velocity remains the same
@@ -99,13 +105,13 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyUp (KeyCode.Space) || Input.GetMouseButtonUp (0)) 
 		{
-			jumpTimeCounter = 0; 
-			stoppedJumping = true;
+			jumpTimeCounter = 0; //jumpTimeCounter is set to 0
+			stoppedJumping = true; //Player has stopped jumping
 		}
 
 		if (grounded)
 		{
-			jumpTimeCounter = jumpTime;
+			jumpTimeCounter = jumpTime; //jumpTimeCounter is set to jumpTime (time in the air)
 		}
 
 		myAnimator.SetFloat ("Speed", myRigidbody.velocity.x); //Sets the Animator variable "Speed" to the x value of the Player's Rigidbody Velocity
