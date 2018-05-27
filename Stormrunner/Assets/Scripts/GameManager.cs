@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour {
 
 	private ScoreManager theScoreManager; //Score Manager
 
-
 	public DeathMenu theDeathScreen; //Game Over Screen
+
+	public PauseMenu thePauseMenu; //Pause Menu Screen
 
 
 	// Use this for initialization
@@ -26,7 +27,21 @@ public class GameManager : MonoBehaviour {
 
 		theScoreManager = FindObjectOfType<ScoreManager>(); //initialize score manager
 	}
-		
+
+	void Update ()
+	{
+		//Pause-Unpause when pause key pressed
+		if (Input.GetKeyDown (KeyCode.Escape) || Input.GetKeyDown (KeyCode.P)) //If Escape or P key pressed
+		{
+			if (thePauseMenu.paused && thePlayer.dead == false) { //If Game Paused
+				thePauseMenu.resumeGame (); //Resume Game
+			} 
+			else if (thePlayer.dead == false)//If game not paused
+			{
+				thePauseMenu.pauseGame (); //Pause Game
+			}
+		}
+	}
 
 	//Restart Game Coroutine
 	public void RestartGame() 
@@ -55,6 +70,7 @@ public class GameManager : MonoBehaviour {
 
 		theScoreManager.scoreCount = 0;
 		theScoreManager.scoreIncreasing = true;
+		thePlayer.dead = false; //Player starts the game as not dead
 	}
 
 	/*//Restart Game Coroutine

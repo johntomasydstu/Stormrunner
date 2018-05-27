@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour {
 
 	public GameManager theGameManager; //Game Manager
 
+	public bool dead; //Is the player dead?
+
 
 
 	// Use this for initialization
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour {
 		speedIncreaseMilestoneStore = speedIncreaseMilestone; //Set initial value
 
 		stoppedJumping = true;
+		dead = false; //Player starts the game as not dead
 	}
 	
 	// Update is called once per frames
@@ -113,6 +116,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "killbox") 
 		{
+			dead = true; //Player is dead
 			theGameManager.RestartGame (); //Restart the game
 			moveSpeed = moveSpeedStore; //Reset to initial value
 			speedMilestoneCount = speedMilestoneCountStore; //Reset to initial value

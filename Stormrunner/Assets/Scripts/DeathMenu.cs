@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour 
 {
-
 	public void RestartGame() 
 	{
 		FindObjectOfType<GameManager>().Reset(); //Finds the game manager and runs it's reset function
