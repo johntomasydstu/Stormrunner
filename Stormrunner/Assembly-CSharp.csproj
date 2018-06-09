@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\PlatformGenerator.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\ScrollingBackground.cs" />
      <None Include="Assets\Fonts\Baloo\OFL.txt" />
      <None Include="Assets\Fonts\Passion_One\OFL.txt" />
      <None Include="Assets\Fonts\Changa_One\OFL.txt" />
