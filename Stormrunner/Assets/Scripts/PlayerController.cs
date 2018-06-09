@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour {
 
 	public bool dead; //Is the player dead?
 
+	public AudioSource jumpSound; //Jump Sound
+	public AudioSource deathSound; //Death Sound
+
+
 
 
 	// Use this for initialization
@@ -91,6 +95,7 @@ public class PlayerController : MonoBehaviour {
 			{
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce); //The player's x velocity remains the same, y velocity is set to jumpForce
 				stoppedJumping = false;
+				jumpSound.Play (); //Play Jump Sound
 			}
 		}
 
@@ -127,6 +132,8 @@ public class PlayerController : MonoBehaviour {
 			moveSpeed = moveSpeedStore; //Reset to initial value
 			speedMilestoneCount = speedMilestoneCountStore; //Reset to initial value
 			speedIncreaseMilestone = speedIncreaseMilestoneStore; //Reset initial value
+			deathSound.Play (); //Play Death Sound
+
 
 
 		}
