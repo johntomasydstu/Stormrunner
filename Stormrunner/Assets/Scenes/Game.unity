@@ -222,6 +222,20 @@ MonoBehaviour:
   maxHeightPoint: {fileID: 408703640}
   maxHeightChange: 3
   randomCoinThreshold: 25
+  platformSprites:
+  - {fileID: 21300028, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300014, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300000, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300178, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300164, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300150, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300148, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300134, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300120, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300118, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300104, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  - {fileID: 21300090, guid: 7880e67542df040f5845bcc4fb66d20a, type: 3}
+  biome: 0
 --- !u!4 &86239158
 Transform:
   m_ObjectHideFlags: 0
@@ -1068,7 +1082,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundWidth: 17.91
   backgroundPosY: 0
-  parallaxSpeed: -0.25
+  parallaxSpeed: -0.4
+  leftIndex: 0
+  rightIndex: 0
 --- !u!1 &444205500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +3014,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1219383020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.34, y: -4.1, z: 0}
+  m_LocalPosition: {x: -9.9, y: -1.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 679102594}
@@ -3715,11 +3731,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4178801456323708, guid: cd498371c101c4d6a804908ea44a391b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.03
+      value: -18.01
       objectReference: {fileID: 0}
     - target: {fileID: 4178801456323708, guid: cd498371c101c4d6a804908ea44a391b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.100418
+      value: -4.09
       objectReference: {fileID: 0}
     - target: {fileID: 4178801456323708, guid: cd498371c101c4d6a804908ea44a391b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4016,7 +4032,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4098,7 +4114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923266186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.27, y: -4.01, z: 0}
+  m_LocalPosition: {x: -19.27, y: 4.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446979107}
@@ -4113,13 +4129,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1923266186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca3fa1b30c56408ab8d016b22d6c2bc, type: 3}
+  m_Script: {fileID: 11500000, guid: fb9954d9eab264dc9a15c767947f3906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 8
   speedMultiplier: 1.05
-  speedIncreaseMilestone: 250
-  jumpForce: 12
+  speedIncreaseMilestone: 100
+  jumpForce: 10
   jumpTime: 0.25
   grounded: 0
   whatIsGround:
@@ -4128,9 +4144,28 @@ MonoBehaviour:
   groundCheck: {fileID: 446979107}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1792532590}
+  thePlatformGenerator: {fileID: 86239157}
   dead: 0
   jumpSound: {fileID: 1953875080}
   deathSound: {fileID: 1562367986}
+  backgroundSprites:
+  - {fileID: 21300000, guid: 6da1baafc463a4611ac94055b0164453, type: 3}
+  - {fileID: 21300000, guid: f11d43f1b19344d68b91f05972879088, type: 3}
+  - {fileID: 21300000, guid: 2b2bc9c067e33448eaaf869116b2630f, type: 3}
+  - {fileID: 21300000, guid: 6da1baafc463a4611ac94055b0164453, type: 3}
+  - {fileID: 21300000, guid: f11d43f1b19344d68b91f05972879088, type: 3}
+  - {fileID: 21300000, guid: 2b2bc9c067e33448eaaf869116b2630f, type: 3}
+  - {fileID: 21300000, guid: a52c500a92fa142f8abe8fc507e39b9b, type: 3}
+  - {fileID: 21300000, guid: d56fa97ecf8474f389759fb02415d7db, type: 3}
+  - {fileID: 21300000, guid: 7ba9307b1335d4a4a827e21558197a5a, type: 3}
+  - {fileID: 21300000, guid: 5a7ca3985076c4f6ba78840e46f360a3, type: 3}
+  - {fileID: 21300000, guid: 5904a9bcbf8194ab4b537b8eaf1c991c, type: 3}
+  - {fileID: 21300000, guid: 0b3b8c460c9c34535bf5003b1f30da8b, type: 3}
+  backgroundLayers:
+  - {fileID: 443765670}
+  - {fileID: 2125040667}
+  - {fileID: 2009171640}
+  theScrollingBackgroundScript: {fileID: 0}
 --- !u!95 &1923266192
 Animator:
   serializedVersion: 3
@@ -4194,6 +4229,8 @@ MonoBehaviour:
   backgroundWidth: 17.91
   backgroundPosY: 0
   parallaxSpeed: -0.1
+  leftIndex: 0
+  rightIndex: 0
 --- !u!1 &1950566016
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,7 +4691,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundWidth: 17.91
   backgroundPosY: -2.555169
-  parallaxSpeed: -1
+  parallaxSpeed: -0.4
+  leftIndex: 0
+  rightIndex: 0
 --- !u!1 &2029041777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4989,6 +5028,8 @@ MonoBehaviour:
   backgroundWidth: 17.91
   backgroundPosY: -1.355169
   parallaxSpeed: -0.4
+  leftIndex: 0
+  rightIndex: 0
 --- !u!1001 &2136384742
 Prefab:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4290175807493764}
   - component: {fileID: 212487921045890054}
   m_Layer: 8
-  m_Name: spritesheet_ground_7 (6)
+  m_Name: mid_block_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4144418104860978}
   - component: {fileID: 212514402451087104}
   m_Layer: 8
-  m_Name: spritesheet_ground_0
+  m_Name: right_block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4602210945396178}
   - component: {fileID: 212778113064368758}
   m_Layer: 8
-  m_Name: spritesheet_ground_7
+  m_Name: mid_block_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4852770944698778}
   - component: {fileID: 212266046840384864}
   m_Layer: 8
-  m_Name: spritesheet_ground_7 (1)
+  m_Name: mid_block_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4274480294605364}
   - component: {fileID: 212492905326110072}
   m_Layer: 8
-  m_Name: spritesheet_ground_7 (2)
+  m_Name: mid_block_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4383041185095216}
   - component: {fileID: 212803186409617218}
   m_Layer: 8
-  m_Name: spritesheet_ground_7 (3)
+  m_Name: mid_block_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4000228868179092}
   - component: {fileID: 212703794341828976}
   m_Layer: 8
-  m_Name: spritesheet_ground_7 (4)
+  m_Name: mid_block_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4482286351070254}
   - component: {fileID: 212775363054531290}
   m_Layer: 8
-  m_Name: spritesheet_ground_7 (5)
+  m_Name: mid_block_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4883817513969092}
   - component: {fileID: 212785572450679130}
   m_Layer: 8
-  m_Name: spritesheet_ground_14
+  m_Name: left_block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4744092847317052}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4274480294605364
 Transform:
@@ -222,7 +222,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4744092847317052}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4383041185095216
 Transform:
@@ -248,7 +248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4744092847317052}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4602210945396178
 Transform:
@@ -261,7 +261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4744092847317052}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4744092847317052
 Transform:
@@ -270,18 +270,18 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689570857409346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.4, y: 11.54, z: 0.13337678}
+  m_LocalPosition: {x: 43.194496, y: -1.5487795, z: 0.13337678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4144418104860978}
-  - {fileID: 4602210945396178}
   - {fileID: 4883817513969092}
+  - {fileID: 4482286351070254}
+  - {fileID: 4602210945396178}
   - {fileID: 4852770944698778}
   - {fileID: 4274480294605364}
   - {fileID: 4383041185095216}
   - {fileID: 4000228868179092}
-  - {fileID: 4482286351070254}
   - {fileID: 4290175807493764}
+  - {fileID: 4144418104860978}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -309,7 +309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4744092847317052}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61935390727242842
 BoxCollider2D:

@@ -9,7 +9,7 @@ public class PlatformGenerator : MonoBehaviour {
 	public float distanceBetween; //Distance between platforms
 
 	private float platformWidth; //Width of the platform
-
+	private SpriteRenderer spriteRenderer;
 
 	public float distanceBetweenMin; //Min distance between platforms
 	public float distanceBetweenMax; //Max distance between platforms
@@ -29,14 +29,19 @@ public class PlatformGenerator : MonoBehaviour {
 	private CoinGenerator theCoinGenerator; //Coin Generator
 	public float randomCoinThreshold; //Used to decide if coins should be created or not
 
+	//Platform Sprite List
+	public Sprite[] platformSprites;
 
+	public int biome; //Current Biome: 0 = Grass, 3 = Snow, 6 = Desert
+
+	private int platformLastChildIndex;
 
 	// Use this for initialization
 	void Start () 
 	{
 		//platformWidth = thePlatform.GetComponent<BoxCollider2D> ().size.x;
 
-	
+
 		platformWidths = new float[theObjectPools.Length]; 
 
 		for (int i = 0; i < theObjectPools.Length; i++)
@@ -78,8 +83,21 @@ public class PlatformGenerator : MonoBehaviour {
 
 			GameObject newPlatform = theObjectPools[platformSelector].GetPooledObject (); //Create a new platform equal to an unused object from theObjectPool.pooledObjects list
 
+			platformLastChildIndex = newPlatform.gameObject.transform.childCount -1;
+	
 			newPlatform.transform.position = transform.position;
-			newPlatform.transform.rotation = transform.rotation;
+	
+
+			newPlatform.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = platformSprites[0+biome]; 
+		
+			newPlatform.gameObject.transform.GetChild(newPlatform.gameObject.transform.childCount -1).GetComponent<SpriteRenderer>().sprite = platformSprites[2+biome]; 
+
+			for (int i = 1; i < newPlatform.gameObject.transform.childCount - 1; i++)
+			{
+				newPlatform.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = platformSprites[1+biome]; 
+			}
+				
+
 			newPlatform.SetActive (true); //activates object
 
 			if (Random.Range (0f, 100f) < randomCoinThreshold) 

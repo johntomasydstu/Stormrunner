@@ -11,8 +11,8 @@ public class ScrollingBackground : MonoBehaviour
 	private Transform cameraTransform; //Stores Camera's transform values
 	private Transform[] layers; 
 	private float viewZone = 10;
-	private int leftIndex;
-	private int rightIndex;
+	public int leftIndex;
+	public int rightIndex;
 
 	private float lastCameraX;
 

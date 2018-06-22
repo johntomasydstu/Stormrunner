@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-	public PlayerController thePlayer; //Used to store the Player
+	public PlayerAndBiomeController thePlayer; //Used to store the Player
 
 	private Vector3 lastPlayerPosition; //Stores the Player's last x, y, z position
 	private float distanceToMove; //
@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
 	void Start () 
 	{
 		
-		thePlayer = FindObjectOfType <PlayerController> ();
+		thePlayer = FindObjectOfType <PlayerAndBiomeController> ();
 		lastPlayerPosition = thePlayer.transform.position; //Sets lastPlayerPosition to the Player's position
 
 	}

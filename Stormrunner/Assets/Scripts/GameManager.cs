@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public Transform platformGenerator; //Stores the platformGenerator
 	private Vector3 platformStartPoint; //Platform's Start Point
 
-	public PlayerController thePlayer; //Stores the Player
+	public PlayerAndBiomeController thePlayer; //Stores the Player
 	private Vector3 playerStartPoint; //Player's Start point
 
 	private PlatformDestroyer[] platformList; //List of platforms with the PlatformDestroyer script attatched
