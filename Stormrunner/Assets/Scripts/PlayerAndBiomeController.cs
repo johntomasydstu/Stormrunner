@@ -41,8 +41,8 @@ public class PlayerAndBiomeController : MonoBehaviour {
 
 	public bool dead; //Is the player dead?
 
-	public AudioSource jumpSound; //Jump Sound
-	public AudioSource deathSound; //Death Sound
+	public AudioClip jumpSound; //Jump Sound
+	public AudioClip deathSound; //Death Sound
 
 	private int biomeChange; 
 	public Sprite[] backgroundSprites;
@@ -56,7 +56,7 @@ public class PlayerAndBiomeController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-
+		//Sets the biome to 0 (grass) at the beginning of the game.
 		thePlatformGenerator.biome = 0;
 
 
@@ -98,6 +98,8 @@ public class PlayerAndBiomeController : MonoBehaviour {
 				moveSpeed = 13;
 			}
 
+			//ChangeBiome ();
+
 			biomeChange = Random.Range (1, 5);
 
 			//biome change
@@ -120,12 +122,19 @@ public class PlayerAndBiomeController : MonoBehaviour {
 				thePlatformGenerator.biome = 9;
 
 			}
+
+			for (int i = 0; i < 3; i++)
+			{
+				backgroundLayers[i].gameObject.transform.GetChild(backgroundLayers[i].gameObject.GetComponent<ScrollingBackground>()
+					.rightIndex).GetComponent<SpriteRenderer>().sprite = backgroundSprites[i+thePlatformGenerator.biome]; 
+			}
+
+
+
+
 		} 
 
-		for (int i = 0; i < 3; i++)
-		{
-			backgroundLayers[i].gameObject.transform.GetChild(backgroundLayers[i].gameObject.GetComponent<ScrollingBackground>().rightIndex).GetComponent<SpriteRenderer>().sprite = backgroundSprites[i+thePlatformGenerator.biome]; 
-		}
+
 
 		myRigidbody.velocity = new Vector2 (moveSpeed, myRigidbody.velocity.y); //The player's x velocity is set to moveSpeed, the player's y velocity remains the same
 
@@ -136,7 +145,7 @@ public class PlayerAndBiomeController : MonoBehaviour {
 			{
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce); //The player's x velocity remains the same, y velocity is set to jumpForce
 				stoppedJumping = false;
-				jumpSound.Play (); //Play Jump Sound
+				FindObjectOfType<AudioManager>().Play("Jump"); //Play Jump Sound
 			}
 		}
 
@@ -169,15 +178,20 @@ public class PlayerAndBiomeController : MonoBehaviour {
 		if (other.gameObject.tag == "killbox") 
 		{
 			dead = true; //Player is dead
-			thePlatformGenerator.biome = 0;
 			theGameManager.RestartGame (); //Restart the game
 			moveSpeed = moveSpeedStore; //Reset to initial value
 			speedMilestoneCount = speedMilestoneCountStore; //Reset to initial value
 			speedIncreaseMilestone = speedIncreaseMilestoneStore; //Reset initial value
-			deathSound.Play (); //Play Death Sound
-
-
-
+			FindObjectOfType<AudioManager>().Play("Death");  //Play Death Sound
+			thePlatformGenerator.biome = 0; //Set the biome to 0 (grass)
 		}
 	}
+
+
+	public void ChangeBiome()
+	{
+		
+	}
+
+
 }
