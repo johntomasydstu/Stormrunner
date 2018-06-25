@@ -47,11 +47,7 @@ public class PlayerAndBiomeController : MonoBehaviour {
 	private int biomeChange; 
 	public Sprite[] backgroundSprites;
 	public GameObject[] backgroundLayers;
-
-	public ScrollingBackground theScrollingBackgroundScript;
-
-
-
+	private bool rightBackgroundLayerIsVisible; //Is the right background visible?
 
 	// Use this for initialization
 	void Start () 
@@ -98,41 +94,15 @@ public class PlayerAndBiomeController : MonoBehaviour {
 				moveSpeed = 13;
 			}
 
-			//ChangeBiome ();
-
-			biomeChange = Random.Range (1, 5);
-
-			//biome change
-			if (biomeChange == 1) //Grass biome
-			{
-				thePlatformGenerator.biome = 0;
-			} 
-			else if (biomeChange == 2) //Purple biome
-			{
-				thePlatformGenerator.biome = 3;
-
-			} 
-			else if (biomeChange == 3) //Snow biome
-			{
-				thePlatformGenerator.biome = 6;
-
-			}
-			else if (biomeChange == 4) //Desert biome
-			{
-				thePlatformGenerator.biome = 9;
-
-			}
-
-			for (int i = 0; i < 3; i++)
-			{
-				backgroundLayers[i].gameObject.transform.GetChild(backgroundLayers[i].gameObject.GetComponent<ScrollingBackground>()
-					.rightIndex).GetComponent<SpriteRenderer>().sprite = backgroundSprites[i+thePlatformGenerator.biome]; 
-			}
-
-
-
+			ChangeBiome ();
 
 		} 
+
+
+
+		backgroundChange ();
+
+
 
 
 
@@ -187,10 +157,55 @@ public class PlayerAndBiomeController : MonoBehaviour {
 		}
 	}
 
-
+	//Changes the biome. Will only have an affect if the right background layers are NOT visible within the camera's view.
 	public void ChangeBiome()
 	{
-		
+		rightBackgroundLayerIsVisible = backgroundLayers [2].gameObject.transform.GetChild (backgroundLayers [2].gameObject.GetComponent<ScrollingBackground> ().rightIndex).GetComponent<Renderer> ().isVisible;
+
+		if (rightBackgroundLayerIsVisible == false) 
+		{
+			Debug.Log ("Biome Changing my nigga!");
+			biomeChange = Random.Range (1, 6); //biomeChange is set to a number between 1 (inclusive) and 5 (exclusive) - meaning a number between 1 and 4.
+
+			//Biome Change
+			if (biomeChange == 1) //Grass biome
+			{
+				thePlatformGenerator.biome = 0;
+			} 
+			else if (biomeChange == 2) //Purple biome
+			{
+				thePlatformGenerator.biome = 3;
+
+			} 
+			else if (biomeChange == 3) //Desert biome
+			{
+				thePlatformGenerator.biome = 6;
+
+			}
+			else if (biomeChange == 4) //Snow biome
+			{
+				thePlatformGenerator.biome = 9;
+
+			}
+			else if (biomeChange == 5) //Stone biome
+			{
+				thePlatformGenerator.biome = 12;
+			}
+
+
+		}
+
+
+	}
+
+	public void backgroundChange()
+	{
+		//Background Change
+		for (int i = 0; i < 3; i++)
+		{
+			backgroundLayers[i].gameObject.transform.GetChild(backgroundLayers[i].gameObject.GetComponent<ScrollingBackground>().rightIndex).GetComponent<SpriteRenderer>().sprite = 
+				backgroundSprites[i+thePlatformGenerator.biome]; //The right index child (background on the right side) of BackgroundLayer [i]'s sprite is changed to fit the new biome.
+		}
 	}
 
 
