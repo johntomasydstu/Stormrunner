@@ -1,18 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerAndBiomeController.cs">
-    <Files>
-      <File FileName="Assets/Scripts/PlayerAndBiomeController.cs" Line="58" Column="56" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="83" Column="54" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="10" Column="2" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sound.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/OptionsMenu.cs" Line="17" Column="3" />
-      <File FileName="Assets/Scripts/pickupPoints.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlatformGenerator.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PauseMenu.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
 	// Use this for initialization
 	void Awake () {
 
+		//If AudioManager already exists in the screen, destroy AudioManager.
 		if (instance == null)
 			instance = this;
 		else 
@@ -23,6 +24,8 @@ public class AudioManager : MonoBehaviour
 		}
 		DontDestroyOnLoad (gameObject);
 
+
+		//Distribute variables
 		foreach (Sound s in sounds) 
 		{
 			s.source = gameObject.AddComponent<AudioSource> ();
@@ -34,26 +37,27 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
+	//Play Audio
 	public void Play (string name) 
 	{
-		Sound s = Array.Find (sounds, sound => sound.name == name);
-		if (s == null) 
+		Sound s = Array.Find (sounds, sound => sound.name == name); //Find sound
+		if (s == null) //If not found
 		{
 			Debug.LogWarning ("Sound: " + name + " not found!");
 			return;
 		}
-		s.source.Play();
+		s.source.Play(); //Play Sound
 	}
 
+	//Play Audio
 	public void Stop (string name) 
 	{
-		Sound s = Array.Find (sounds, sound => sound.name == name);
-		if (s == null) 
+		Sound s = Array.Find (sounds, sound => sound.name == name); //Find sound
+		if (s == null) //If not found
 		{
 			Debug.LogWarning ("Sound: " + name + " not found!");
 			return;
 		}
-		s.source.Stop();
+		s.source.Stop(); //Stop sound
 	}
 }

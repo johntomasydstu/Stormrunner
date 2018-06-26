@@ -23,6 +23,8 @@ public class PlayerAndBiomeController : MonoBehaviour {
 
 	private bool stoppedJumping; //Becomes true when player hits the ground, becomes false when start jumping
 
+	public bool paused; //Is the game paused?
+
 	private Rigidbody2D myRigidbody; //Rigid Body belonging to the object (player) the script is attatched to 
 
 	public bool grounded; //If player is on the ground, this variable is set to true.
@@ -52,6 +54,7 @@ public class PlayerAndBiomeController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		paused = false; //Game is not paused.
 		//Sets the biome to 0 (grass) at the beginning of the game.
 		thePlatformGenerator.biome = 0;
 
@@ -112,7 +115,7 @@ public class PlayerAndBiomeController : MonoBehaviour {
 		//Jump
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) //Checks if either the Space Bar or the Left Mouse Button is pressed
 		{
-			if (grounded) 
+			if (grounded && paused == false) 
 			{
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce); //The player's x velocity remains the same, y velocity is set to jumpForce
 				stoppedJumping = false;
@@ -167,7 +170,6 @@ public class PlayerAndBiomeController : MonoBehaviour {
 
 		if (rightBackgroundLayerIsVisible == false) 
 		{
-			Debug.Log ("Biome Changing my nigga!");
 			biomeChange = Random.Range (1, 6); //biomeChange is set to a number between 1 (inclusive) and 5 (exclusive) - meaning a number between 1 and 4.
 
 			//Biome Change

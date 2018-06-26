@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour {
 	public void pauseGame()
 	{
 		paused = true; //Game is now paused
+		GameObject.FindObjectOfType<PlayerAndBiomeController>().paused = paused;
 		gameObject.SetActive(true); //Opens the pause menu
 		Time.timeScale = 0f; //Freezes the game
 	}
@@ -32,6 +33,7 @@ public class PauseMenu : MonoBehaviour {
 	public void resumeGame()
 	{
 		paused = false; //Game is now unpaused
+		GameObject.FindObjectOfType<PlayerAndBiomeController>().paused = paused;
 		gameObject.SetActive(false); //Closes the pause menu
 		Time.timeScale = 1f; //Unfreezes the game
 	}
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour {
 	public void RestartGame() 
 	{
 		paused = false; //Game is now unpaused
+		GameObject.FindObjectOfType<PlayerAndBiomeController>().paused = paused;
 		gameObject.SetActive(false); //Closes the pause menu
 		FindObjectOfType<GameManager>().Reset(); //Finds the game manager and runs it's reset function
 		Time.timeScale = 1f; //Unfreezes the game
@@ -47,6 +50,7 @@ public class PauseMenu : MonoBehaviour {
 	public void QuitToMain() 
 	{
 		paused = false; //Game is now unpaused
+		GameObject.FindObjectOfType<PlayerAndBiomeController>().paused = paused;
 		Time.timeScale = 1f; //Unfreezes the game
 		Time.timeScale = 1f; //Unfreezes the game
 		SceneManager.LoadScene ("MainMenu"); //Loads the "Game" scene
