@@ -5,7 +5,7 @@ SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/Game.unity
 SceneListEnd?
-3ac5126036109b67c1cf144c4008cec8 Assembly-CSharp.dll:.AudioManager
+dc051bc8af48a7e1e914d2ce31301153 Assembly-CSharp.dll:.AudioManager
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -191,7 +191,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 afee343a62829ea482ba812fa59db319 Assembly-CSharp.dll:.CameraController
-e09e9be9f6f4514c9ef7aa0a3c63207f Assembly-CSharp.dll:.OptionsMenu
+8d3ab485d8a31421d04bdafa49695141 Assembly-CSharp.dll:.OptionsMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DeathMenu
 3ace7c4bc76d01342acdecf7c735a83c Assembly-CSharp.dll:.pickupPoints
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
@@ -212,7 +212,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 45e45363fe7dc878132f009cf0d59b7e Assembly-CSharp.dll:LetterboxCamera.ForceCameraRatio
-ca98eb01df43f71867939af8079fd8af Assembly-CSharp.dll:.PlayerAndBiomeController
+6d26846626d1abdce682d39e2e329bdf Assembly-CSharp.dll:.PlayerAndBiomeController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -235,7 +235,7 @@ cbdd176ad3cc20da92c6e0b018c3e4fc Assembly-CSharp.dll:.ScoreManager
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 278e2ce72d1d9bcd162fad36a91cea9d Assembly-CSharp.dll:.CoinGenerator
 ea83c444b3f17067ee434fa6f35067c5 Assembly-CSharp.dll:.ScaleWithCamera
-7d187822f771437eab8e6ee4b1e7010d Assembly-CSharp.dll:.MainMenu
+ae8c2e98a6e0a6b52df14e6cee8bf975 Assembly-CSharp.dll:.MainMenu
 26215f135eeb48d8fa1189498c107f6c Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 0561521e336e270e6e5a9c61387cb838 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour
 2e0fd93f459db951da0e2e94e2e33fb7 Vuforia.UnityExtensions.dll:Vuforia.AnchorStageBehaviour
@@ -306,3 +306,4 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
+2fcd6ab53dd204a85222b9ff138cf0a1 Assembly-CSharp.dll:.HelpMenu

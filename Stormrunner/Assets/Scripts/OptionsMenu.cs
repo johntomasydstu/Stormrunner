@@ -12,11 +12,7 @@ public class OptionsMenu : MonoBehaviour {
 
 	public AudioMixer theAudioMixer;
 
-	// Use this for initialization
-	void Start()
-	{
-		musicVolumeSlider.value = FindObjectOfType<AudioManager> ().musicVolume;
-	}
+
 
 	public void backButton()
 	{
@@ -29,13 +25,11 @@ public class OptionsMenu : MonoBehaviour {
 
 	public void SetMusicVolume(float value)
 	{
-		FindObjectOfType<AudioManager> ().musicVolume = value;
 		theAudioMixer.SetFloat ("musicVol", value);
 	}
 
 	public void SetSfxVolume(float value)
 	{
-		FindObjectOfType<AudioManager> ().musicVolume = value;
 		theAudioMixer.SetFloat ("sfxVol", value);
 	}
 		

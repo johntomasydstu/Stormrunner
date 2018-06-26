@@ -6,9 +6,7 @@ public class AudioManager : MonoBehaviour
 {
 
 	public Sound[] sounds; //List of Music
-	public float musicVolume = 0.6f; 
 	public AudioMixer theAudioMixer; //Audio Mixer reference
-
 
 
 	public static AudioManager instance; //Static reference to current AudioManager in scene
@@ -29,7 +27,6 @@ public class AudioManager : MonoBehaviour
 		{
 			s.source = gameObject.AddComponent<AudioSource> ();
 			s.source.clip = s.clip;
-			s.volume = musicVolume;
 			s.source.volume = s.volume;
 			s.source.pitch = s.pitch;
 			s.source.loop = s.loop;

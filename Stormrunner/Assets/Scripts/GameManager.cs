@@ -70,6 +70,18 @@ public class GameManager : MonoBehaviour {
 
 		theScoreManager.scoreCount = 0;
 		theScoreManager.scoreIncreasing = true;
+
+
+		//Set background layers to grassy (0)
+		for (int i = 0; i < 3; i++)
+		{
+			for (int childIndex = 0; childIndex < 3; childIndex++) 
+			{
+				thePlayer.backgroundLayers[i].gameObject.transform.GetChild(childIndex).GetComponent<SpriteRenderer>().sprite = thePlayer.backgroundSprites[i]; //The right index child (background on the right side) of BackgroundLayer [i]'s sprite is changed to fit the new biome.
+			}
+		}
+		FindObjectOfType<AudioManager>().Play("GameMusic");
+
 		thePlayer.dead = false; //Player starts the game as not dead
 	}
 

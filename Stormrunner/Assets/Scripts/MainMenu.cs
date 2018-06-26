@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
 	public GameObject mainMenuHolder;
 	public GameObject optionsMenuHolder;
+	public GameObject helpMenuHolder;
 
 	void Start()
 	{
@@ -23,6 +24,12 @@ public class MainMenu : MonoBehaviour
 	{
 		mainMenuHolder.SetActive (false);
 		optionsMenuHolder.SetActive (true);
+	}
+
+	public void helpMenu() 
+	{
+		mainMenuHolder.SetActive (false);
+		helpMenuHolder.SetActive (true);
 	}
 
 	public void quitGame() 

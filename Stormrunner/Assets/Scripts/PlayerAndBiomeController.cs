@@ -55,6 +55,7 @@ public class PlayerAndBiomeController : MonoBehaviour {
 		//Sets the biome to 0 (grass) at the beginning of the game.
 		thePlatformGenerator.biome = 0;
 
+		FindObjectOfType<AudioManager> ().Play ("GameMusic");
 
 		myRigidbody = GetComponent<Rigidbody2D> (); //Sets myRigidbody to the player's RigidBody2D component
 	
@@ -148,12 +149,14 @@ public class PlayerAndBiomeController : MonoBehaviour {
 		if (other.gameObject.tag == "killbox") 
 		{
 			dead = true; //Player is dead
+			FindObjectOfType<AudioManager>().Stop("GameMusic");
 			theGameManager.RestartGame (); //Restart the game
 			moveSpeed = moveSpeedStore; //Reset to initial value
 			speedMilestoneCount = speedMilestoneCountStore; //Reset to initial value
 			speedIncreaseMilestone = speedIncreaseMilestoneStore; //Reset initial value
 			FindObjectOfType<AudioManager>().Play("Death");  //Play Death Sound
 			thePlatformGenerator.biome = 0; //Set the biome to 0 (grass)
+
 		}
 	}
 
